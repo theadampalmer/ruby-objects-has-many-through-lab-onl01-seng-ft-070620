@@ -17,7 +17,7 @@ class Patient
   end
   
   def doctors
-    appointments.map(&:doctor)
+    Doctor.all.collect{|doctor| doctor.appointment}.uniq
   end   
   
   def self.all
