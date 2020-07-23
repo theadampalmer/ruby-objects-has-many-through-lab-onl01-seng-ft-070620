@@ -3,22 +3,23 @@ class Patient
 
   def initialize(name)
     @name = name 
+    @@all << self
   end  
 
-  def new_appointment(doctor, date)
-    Appointment.new(self, doctor, date)
+  def new_appointment(date, Doctor)
+    Appointment.new(self, Doctor, date)
   end
-
-  def doctors
-    appointments.map do |appointment|
-      appointment.doctor 
-    end   
-  end   
 
   def appointments
     Appointment.all.select do|appointment| 
       appointment.patient == self
     end   
   end
+  def doctors
+    appointments.map do |appointment|
+      appointment.doctor 
+    end   
+  end   
+
 
 end 
