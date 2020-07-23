@@ -16,10 +16,10 @@ class Patient
   end
   
   def doctors
-    appointments.map do |appointment|
-      appointment.doctor 
-    end   
+    self.appointments.map {|appointment| appointment.doctor} 
   end   
-
-
+  
+  def self.all
+    @@all
+  end
 end 
