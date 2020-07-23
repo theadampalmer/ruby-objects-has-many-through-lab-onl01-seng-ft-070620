@@ -17,7 +17,7 @@ class Patient
   end
   
   def doctors
-    Doctor.all.collect{|doctor| doctors.appointments}.uniq
+    Doctor.all.collect{|doctors| doctors.appointments}.uniq
   end   
   
   def self.all
